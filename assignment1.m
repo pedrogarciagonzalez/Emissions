@@ -3,6 +3,8 @@ close all
 %inputs
 tau = 12;
 ch4_tchange2005 = 0.012;
+rho_ch4 = 0.656; %kg/m^3
+atmmass = 5.1*10^18; %kg
 
 fid = fopen('input','r');
 data_em = fscanf(fid,'%g %g %g %g %g', [5,82]);
@@ -11,9 +13,9 @@ fclose(fid);
 data = data_em';
 year = data(:,1);
 ch4_ppbv = data(:,2);
-nox_em = data(:,3);
-nox_em_1per = data(:,4);
-nox_em_const = data(:,5);
+nox_em = data(:,3)*10^6;
+nox_em_1per = data(:,4)*10^6;
+nox_em_const = data(:,5)*10^6;
 ch4_tchange = ch4_tchange2005/nox_em(66)*nox_em(:);
 ch4_tchange_1per = ch4_tchange2005/nox_em_1per(66)*nox_em_1per(:);
 ch4_tchange_const = ch4_tchange2005/nox_em_const(66)*nox_em_const(:);
@@ -71,8 +73,11 @@ legend({'Real','1% increase','Constant','Constant NOx and CH_4 (1940)'},'Locatio
 
 %part D, I assumed ppb=ppbv since the molar volume of every ideal gas is the
 %same
-RF2008 = (-1.3.*10.^(-6).*(ch4_ppbv(:)+ch4_ppbv(1))./2-8.2.*10.^(-6).*(nox_em(:)+nox_em(1))./2+0.043).*(sqrt(ch4_ppbv(:))-sqrt(ch4_ppbv(1)));
-%RF2019 = (-1.3.*10.^(-6).*(ch4_ppbv(:)+ch4_ppbv(1))./2-8.2.*10.^(-6).*(nox_em(:)+nox_em(1))./2+0.043).*(sqrt(ch4_ppbv(:))-sqrt(ch4_ppbv(1))); %also don't know how to make this different
+ch4_ppb = ch4_ppbv*rho_ch4;
+nox_ppb = nox_em/atmmass;
+
+RF2008 = (-1.3.*10.^(-6).*(ch4_ppb(:)+ch4_ppb(1))./2-8.2.*10.^(-6).*(nox_ppb(:)+nox_ppb(1))./2+0.043).*(sqrt(ch4_ppb(:))-sqrt(ch4_ppb(1)));
+%RF2019 = (-1.3.*10.^(-6).*(ch4_ppb(:)+ch4_ppb(1))./2-8.2.*10.^(-6).*(nox_ppb(:)+nox_ppb(1))./2+0.043).*(sqrt(ch4_ppb(:))-sqrt(ch4_ppb(1))); %also don't know how to make this different
 RF2008_1990 = RF2008(51)
 RF2008_2005 = RF2008(66)
 RF2008_2020 = RF2008(81)
