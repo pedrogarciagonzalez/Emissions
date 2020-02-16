@@ -12,9 +12,11 @@ data = data_em';
 year = data(:,1);
 ch4_ppbv = data(:,2);
 nox_em = data(:,3);
-ch4_tchange = ch4_tchange2005/data(66,3)*data(:,3);
-ch4_tchange_1per = ch4_tchange2005/data(66,4)*data(:,4);
-ch4_tchange_const = ch4_tchange2005/data(66,5)*data(:,5);
+nox_em_1per = data(:,4);
+nox_em_const = data(:,5);
+ch4_tchange = ch4_tchange2005/nox_em(66)*nox_em(:);
+ch4_tchange_1per = ch4_tchange2005/nox_em_1per(66)*nox_em_1per(:);
+ch4_tchange_const = ch4_tchange2005/nox_em_const(66)*nox_em_const(:);
 
 ddt_ch4 = zeros(81);
 ddt_ch4_1per = zeros(81);
@@ -83,3 +85,9 @@ title('Radiative forcing from aviation CH_4 effects from 1940 to 2020')
 xlabel('Year')
 ylabel('RF (W/m^2)')
 %legend({'Grewe-Stenke (2008)','Steady-state assumption by Grewe et al. (2019)'},'Location','northwest')
+
+%%
+%muddy points:
+%steady-state assumption: delta=0?
+%ppb=ppbv?
+%which ch4 concentration to use in d)
