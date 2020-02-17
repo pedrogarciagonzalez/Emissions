@@ -23,33 +23,27 @@ delta_ch4 = zeros(81,1);
 delta_ch4_1per = zeros(81,1);
 delta_ch4_const = zeros(81,1);
 delta_ch4_const1940 = zeros(81,1);
-delta_ch4_std = zeros(81,1);
-delta_ch4_std_1per = zeros(81,1);
-delta_ch4_std_const = zeros(81,1);
-delta_ch4_std_const1940 = zeros(81,1);
 
-for i = 1:1:81
-    %steady-state assumption (Grewe 2019)
-    delta_ch4_std(i) = ch4_tchange(i)*ch4_ppbv(i);
-    delta_ch4_std_1per(i) = ch4_tchange_1per(i)*ch4_ppbv(i);
-    delta_ch4_std_const(i) = ch4_tchange_const(i)*ch4_ppbv(i);
-    delta_ch4_std_const1940(i) = ch4_tchange_const(i)*ch4_ppbv(1);
+%steady-state assumption (Grewe 2019)
+delta_ch4_std = ch4_tchange.*ch4_ppbv;
+delta_ch4_std_1per = ch4_tchange_1per.*ch4_ppbv;
+delta_ch4_std_const = ch4_tchange_const.*ch4_ppbv;
+delta_ch4_std_const1940 = ch4_tchange_const.*ch4_ppbv(1);
 
+%initial condition for transient approach assumed to be equal to the steady-state solution
+delta_ch4(1) = delta_ch4_std(1);
+delta_ch4_1per(1) = delta_ch4_std_1per(1);
+delta_ch4_const(1) = delta_ch4_std_const(1);
+delta_ch4_const1940(1) = delta_ch4_std_const1940(1);
+
+for i = 2:1:81
     %transient approach (Grewe and Stenke 2008)
-    if i == 1 %initial condition assumed to be equal to the steady-state solution
-        delta_ch4(i) = delta_ch4_std(i);
-        delta_ch4_1per(i) = delta_ch4_std_1per(i);
-        delta_ch4_const(i) = delta_ch4_std_const(i);
-        delta_ch4_const1940(i) = delta_ch4_std_const1940(i);
-    
-    else
-        delta_ch4(i) = delta_ch4(i-1)*(1-1/(1+ch4_tchange(i-1))*1/tau*deltat)+deltat*ch4_tchange(i-1)/(1+ch4_tchange(i-1))*1/tau*ch4_ppbv(i-1);
-        delta_ch4_1per(i) = delta_ch4_1per(i-1)*(1-1/(1+ch4_tchange_1per(i-1))*1/tau*deltat)+deltat*ch4_tchange_1per(i-1)/(1+ch4_tchange_1per(i-1))*1/tau*ch4_ppbv(i-1);
-        delta_ch4_const(i) = delta_ch4_const(i-1)*(1-1/(1+ch4_tchange_const(i-1))*1/tau*deltat)+deltat*ch4_tchange_const(i-1)/(1+ch4_tchange_const(i-1))*1/tau*ch4_ppbv(i-1);
-        delta_ch4_const1940(i) = delta_ch4_const1940(i-1)*(1-1/(1+ch4_tchange_const(i-1))*1/tau*deltat)+deltat*ch4_tchange_const(i-1)/(1+ch4_tchange_const(i-1))*1/tau*ch4_ppbv(1);
-    end
-    
+    delta_ch4(i) = delta_ch4(i-1)*(1-1/(1+ch4_tchange(i-1))*1/tau*deltat)+deltat*ch4_tchange(i-1)/(1+ch4_tchange(i-1))*1/tau*ch4_ppbv(i-1);
+    delta_ch4_1per(i) = delta_ch4_1per(i-1)*(1-1/(1+ch4_tchange_1per(i-1))*1/tau*deltat)+deltat*ch4_tchange_1per(i-1)/(1+ch4_tchange_1per(i-1))*1/tau*ch4_ppbv(i-1);
+    delta_ch4_const(i) = delta_ch4_const(i-1)*(1-1/(1+ch4_tchange_const(i-1))*1/tau*deltat)+deltat*ch4_tchange_const(i-1)/(1+ch4_tchange_const(i-1))*1/tau*ch4_ppbv(i-1);
+    delta_ch4_const1940(i) = delta_ch4_const1940(i-1)*(1-1/(1+ch4_tchange_const(i-1))*1/tau*deltat)+deltat*ch4_tchange_const(i-1)/(1+ch4_tchange_const(i-1))*1/tau*ch4_ppbv(1);
 end
+
 figure(1) %part A
 hold on
 plot(year(1:81),delta_ch4(1:81))
@@ -60,7 +54,7 @@ xlabel('Year')
 ylabel('\Delta CH_4 (ppbv)')
 legend({'Grewe-Stenke (2008)','Steady-state assumption by Grewe et al. (2019)'},'Location','southwest')
 
-%correction factors (don't know if we should divide or subtract)
+%correction factors
 corr_fact = delta_ch4./delta_ch4_std;
 corr_fact2005 = corr_fact(66)
 corr_fact_1per = delta_ch4_1per./delta_ch4_std_1per;
