@@ -314,3 +314,93 @@ end
 %Overall propulsive efficiency of aircraft
 eff1=0.34;
 eff2=0.8;
+
+%Time step
+timestep=UTC1(2)-UTC1(1);
+
+%Assumed values
+cp=1003.5;
+
+%Molar mass of substances
+Mair=0.02897; %kg/mol
+MH2O=0.01801528; %kg/mol
+
+%Fuel dependent variables
+LHV=4.32*10^7; %LHV of Jet A in J/kg
+EIH2O=12; %%%% SEARCHHHHHHHHHHH!!!!!
+
+%Temperature threshold SAC
+Tfreeze=273.15-38; %-38ºC in K
+
+%Saturation line for water
+T=213.15:0.05:263.15; %K
+Pwatervapour=0:0.05:50; %Pa
+a1w=-6096.9385;
+a2w=21.2409632;
+a3w=-0.02711193;
+a4w=0.00001673952;
+a7w=2.433502;
+esw=exp(a1w.*T.^(-1)+a2w+a3w.*T+a4w.*T.^2+a7w.*log(T));
+
+for index=1:length(Pwatervapour)
+    RHw(:,index)=Pwatervapour(index)./esw*100; %Saturation for water, search for 100%
+end
+
+indexwater=[];
+for indexRH=1:length(RHw)
+    for indexP=1:length(Pwatervapour)
+        if RHw(indexRH,indexP)>100
+            Psatw(indexRH)=Pwatervapour(indexP);
+            break;
+        end
+    end
+end
+
+%Saturation line for ice
+a1i=-6024.5282;
+a2i=29.32707;
+a3i=0.010613868;
+a4i=-0.000013198825;
+a7i=-0.49382577;
+esi=exp(a1i.*T.^(-1)+a2i+a3i.*T+a4i.*T.^2+a7i.*log(T));
+RHi=Pwatervapour./esi*100; %Saturation for water, search for 100%
+
+for index=1:length(Pwatervapour)
+    RHi(:,index)=Pwatervapour(index)./esi*100; %Saturation for water, search for 100%
+end
+
+indexice=[];
+for index=1:length(RHi)
+    if RHi(index)>100
+        indexice=[indexice index];
+    end
+end
+
+%Plot of saturation lines
+figure(1)
+plot(T(indexwater)-273.15,Pwatervapour(indexwater))
+hold on
+plot(T(indexice),Pwatervapour(indexice))
+title('Saturation lines')
+xlabel('T (ºC)')
+ylabel('Water vapour pressure (Pa)')
+legend('Water','Ice')
+% %% PART A: ISSR
+% 
+% 
+% %% PART B: Temperature threshold
+% 
+% %% PART C: Schmidt-Appleman criterion
+% G1=P; %Slope of aircraft 1
+% G2=; %Slope of aircraft 2
+% 
+% numberSAC=0;
+% for index=1:
+%     if G1>
+%         numberSAC1=numberSAC1+1;
+%     end
+%     if G2>
+%         
+%     end
+% end
+% %% PART D: Contrail formation
