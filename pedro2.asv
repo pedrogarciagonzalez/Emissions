@@ -641,14 +641,7 @@ percentISSR8=indexISSR8/(length(air_temp_AC8)-indexnotvalid8)*100;
 numberISSR8=indextime8-1;
 meantimeISSR8=sum(time8)/(numberISSR8*60);
 
-percentTthresISSR1=indexTthresISSR1/(length(air_temp_AC1)-indexnotvalid1)*100;
-percentTthresISSR2=indexTthresISSR2/(length(air_temp_AC2)-indexnotvalid2)*100;
-percentTthresISSR3=indexTthresISSR3/(length(air_temp_AC3)-indexnotvalid3)*100;
-percentTthresISSR4=indexTthresISSR4/(length(air_temp_AC4)-indexnotvalid4)*100;
-percentTthresISSR5=indexTthresISSR5/(length(air_temp_AC5)-indexnotvalid5)*100;
-percentTthresISSR6=indexTthresISSR6/(length(air_temp_AC6)-indexnotvalid6)*100;
-percentTthresISSR7=indexTthresISSR7/(length(air_temp_AC7)-indexnotvalid7)*100;
-percentTthresISSR8=indexTthresISSR8/(length(air_temp_AC8)-indexnotvalid8)*100;
+percentTthresISSR1=indexTthresISSR1/(length(air_temp_AC1)-indexnotvalid5)*100;
 
 %% PART B: Temperature threshold
 % Temperature threshold of -38ºC=235.15K according to SAC
@@ -712,14 +705,14 @@ end
 
 
 %Computation of percentages
-percentTthres1=indexTthres1/(length(air_temp_AC1)-indexnotvalid1)*100;
-percentTthres2=indexTthres2/(length(air_temp_AC2)-indexnotvalid2)*100;
-percentTthres3=indexTthres3/(length(air_temp_AC3)-indexnotvalid3)*100;
-percentTthres4=indexTthres4/(length(air_temp_AC4)-indexnotvalid4)*100;
-percentTthres5=indexTthres5/(length(air_temp_AC5)-indexnotvalid5)*100;
-percentTthres6=indexTthres6/(length(air_temp_AC6)-indexnotvalid6)*100;
-percentTthres7=indexTthres7/(length(air_temp_AC7)-indexnotvalid7)*100;
-percentTthres8=indexTthres8/(length(air_temp_AC8)-indexnotvalid8)*100;
+percentTthres1=indexTthres1/length(air_temp_AC1)*100;
+percentTthres2=indexTthres2/length(air_temp_AC2)*100;
+percentTthres3=indexTthres3/length(air_temp_AC3)*100;
+percentTthres4=indexTthres4/length(air_temp_AC4)*100;
+percentTthres5=indexTthres5/length(air_temp_AC5)*100;
+percentTthres6=indexTthres6/length(air_temp_AC6)*100;
+percentTthres7=indexTthres7/length(air_temp_AC7)*100;
+percentTthres8=indexTthres8/length(air_temp_AC8)*100;
 
 %% PART C: Schmidt-Appleman criterion
 
