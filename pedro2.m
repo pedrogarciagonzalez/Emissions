@@ -327,14 +327,16 @@ MH2O=0.01801528; %kg/mol
 
 %Fuel dependent variables
 LHV=4.32*10^7; %LHV of Jet A in J/kg
-EIH2O=12; %%%% SEARCHHHHHHHHHHH!!!!!
+EIH2O=1.23; % kgemission/kgfuel
 
 %Temperature threshold SAC
 Tfreeze=273.15-38; %-38ºC in K
 
+%% OBTENTION OF SATURATION LINE
+
 %Saturation line for water
-T=213.15:0.05:263.15; %K
-Pwatervapour=0:0.05:50; %Pa
+T=213.15:0.005:263.15; %K
+Pwatervapour=0:0.005:50; %Pa
 a1w=-6096.9385;
 a2w=21.2409632;
 a3w=-0.02711193;
@@ -346,11 +348,11 @@ for index=1:length(Pwatervapour)
     RHw(:,index)=Pwatervapour(index)./esw*100; %Saturation for water, search for 100%
 end
 
-indexwater=[];
 for indexRH=1:length(RHw)
     for indexP=1:length(Pwatervapour)
         if RHw(indexRH,indexP)>100
             Psatw(indexRH)=Pwatervapour(indexP);
+            Tsatw(indexRH)=T(indexRH);
             break;
         end
     end
@@ -363,37 +365,165 @@ a3i=0.010613868;
 a4i=-0.000013198825;
 a7i=-0.49382577;
 esi=exp(a1i.*T.^(-1)+a2i+a3i.*T+a4i.*T.^2+a7i.*log(T));
-RHi=Pwatervapour./esi*100; %Saturation for water, search for 100%
 
 for index=1:length(Pwatervapour)
     RHi(:,index)=Pwatervapour(index)./esi*100; %Saturation for water, search for 100%
 end
 
-indexice=[];
-for index=1:length(RHi)
-    if RHi(index)>100
-        indexice=[indexice index];
+for indexRH=1:length(RHi)
+    for indexP=1:length(Pwatervapour)
+        if RHi(indexRH,indexP)>100
+            Psati(indexRH)=Pwatervapour(indexP);
+            Tsati(indexRH)=T(indexRH);
+            break;
+        end
     end
 end
 
 %Plot of saturation lines
 figure(1)
-plot(T(indexwater)-273.15,Pwatervapour(indexwater))
+plot(Tsatw-273.15,Psatw)
 hold on
-plot(T(indexice),Pwatervapour(indexice))
+plot(Tsati-273.15,Psati)
 title('Saturation lines')
 xlabel('T (ºC)')
 ylabel('Water vapour pressure (Pa)')
 legend('Water','Ice')
-% %% PART A: ISSR
-% 
-% 
-% %% PART B: Temperature threshold
-% 
-% %% PART C: Schmidt-Appleman criterion
-% G1=P; %Slope of aircraft 1
-% G2=; %Slope of aircraft 2
-% 
+
+%% PART A: ISSR
+%Ice supersaturated regions are above the line of saturation of ice
+linesatw=[Tsatw;Psatw];
+linesati=[Tsati;Psati];
+
+indexISSR1=0;
+indexISSR2=0;
+indexISSR3=0;
+indexISSR4=0;
+indexISSR5=0;
+indexISSR6=0;
+indexISSR7=0;
+indexISSR8=0;
+
+% for index=1:length(air_temp_AC1)
+%     if air_temp_AC1(index)
+%         indexISSR1=indexISSR1+1;
+%     end
+% end
+%% PART B: Temperature threshold
+% Temperature threshold of -38ºC=235.15K according to SAC
+
+indexTthres1=0;
+indexTthres2=0;
+indexTthres3=0;
+indexTthres4=0;
+indexTthres5=0;
+indexTthres6=0;
+indexTthres7=0;
+indexTthres8=0;
+
+for index=1:length(air_temp_AC1)
+    if air_temp_AC1(index)<Tfreeze && air_temp_AC1(index)>0
+        indexTthres1=indexTthres1+1;
+    end
+end
+
+for index=1:length(air_temp_AC2)
+    if air_temp_AC2(index)<Tfreeze && air_temp_AC2(index)>0
+        indexTthres2=indexTthres2+1;
+    end
+end
+
+for index=1:length(air_temp_AC3)
+    if air_temp_AC3(index)<Tfreeze && air_temp_AC3(index)>0
+        indexTthres3=indexTthres3+1;
+    end
+end
+
+for index=1:length(air_temp_AC4)
+    if air_temp_AC4(index)<Tfreeze && air_temp_AC4(index)>0
+        indexTthres4=indexTthres4+1;
+    end
+end
+
+for index=1:length(air_temp_AC5)
+    if air_temp_AC5(index)<Tfreeze && air_temp_AC5(index)>0
+        indexTthres5=indexTthres5+1;
+    end
+end
+
+for index=1:length(air_temp_AC6)
+    if air_temp_AC6(index)<Tfreeze && air_temp_AC6(index)>0
+        indexTthres6=indexTthres6+1;
+    end
+end
+
+for index=1:length(air_temp_AC7)
+    if air_temp_AC7(index)<Tfreeze && air_temp_AC7(index)>0
+        indexTthres7=indexTthres7+1;
+    end
+end
+
+for index=1:length(air_temp_AC8)
+    if air_temp_AC8(index)<Tfreeze && air_temp_AC8(index)>0
+        indexTthres8=indexTthres8+1;
+    end
+end
+
+%%%% PROBLEM: I THINK THAT SOME VALUES OF air_temp_AC ARE -9999 FOR SOME
+%%%% REASON, ASK
+
+%Computation of percentages
+percentTthres1=indexTthres1/length(air_temp_AC1)*100;
+percentTthres2=indexTthres2/length(air_temp_AC2)*100;
+percentTthres3=indexTthres3/length(air_temp_AC3)*100;
+percentTthres4=indexTthres4/length(air_temp_AC4)*100;
+percentTthres5=indexTthres5/length(air_temp_AC5)*100;
+percentTthres6=indexTthres6/length(air_temp_AC6)*100;
+percentTthres7=indexTthres7/length(air_temp_AC7)*100;
+percentTthres8=indexTthres8/length(air_temp_AC8)*100;
+
+%% PART C: Schmidt-Appleman criterion
+
+for index=1:length(air_press_AC1)
+    G1_1(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_1(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
+for index=1:length(air_press_AC2)
+    G1_2(index)=air_press_AC2(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_2(index)=air_press_AC2(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
+for index=1:length(air_press_AC3)
+    G1_3(index)=air_press_AC3(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_3(index)=air_press_AC3(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
+for index=1:length(air_press_AC4)
+    G1_4(index)=air_press_AC4(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_4(index)=air_press_AC4(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
+for index=1:length(air_press_AC5)
+    G1_5(index)=air_press_AC5(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_5(index)=air_press_AC5(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
+for index=1:length(air_press_AC6)
+    G1_6(index)=air_press_AC6(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_6(index)=air_press_AC6(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
+for index=1:length(air_press_AC7)
+    G1_7(index)=air_press_AC7(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_7(index)=air_press_AC7(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
+for index=1:length(air_press_AC8)
+    G1_8(index)=air_press_AC8(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G2_8(index)=air_press_AC8(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+end
+
 % numberSAC=0;
 % for index=1:
 %     if G1>
@@ -403,4 +533,4 @@ legend('Water','Ice')
 %         
 %     end
 % end
-% %% PART D: Contrail formation
+%% PART D: Contrail formation
