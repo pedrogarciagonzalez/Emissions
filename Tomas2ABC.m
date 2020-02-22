@@ -728,11 +728,14 @@ percentTthres7=indexTthres7/(length(air_temp_AC7)-indexnotvalid7)*100;
 percentTthres8=indexTthres8/(length(air_temp_AC8)-indexnotvalid8)*100;
 
 %% PART C: Schmidt-Appleman criterion
+for index=1:length(T)-1
+    dPsatw_dTsatw(index) = (Psatw(index+1)-Psatw(index))/(T(index+1)-T(index));
+end
+
 for index=1:length(air_press_AC1)
     G1_1(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_1(index)
+        if dPsatw_dTsatw(j) > G1_1(index)
             Ttang1_1(index) = T(j);
             Ptang1_1(index) = Psatw(j);
             break
@@ -742,8 +745,7 @@ for index=1:length(air_press_AC1)
     
 %     G2_1(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
 %     for j=1:length(T)-1
-%         dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-%         if dPsatw_dTsatw > G2_1(index)
+%         if dPsatw_dTsatw(j) > G2_1(index)
 %             Ttang2_1(index) = T(j);
 %             Ptang2_1(index) = Psatw(j);
 %             break
@@ -755,8 +757,7 @@ end
 for index=1:length(air_press_AC2)
     G1_2(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_2(index)
+        if dPsatw_dTsatw(j) > G1_2(index)
             Ttang1_2(index) = T(j);
             Ptang1_2(index) = Psatw(j);
             break
@@ -766,8 +767,7 @@ for index=1:length(air_press_AC2)
     
     G2_2(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G2_2(index)
+        if dPsatw_dTsatw(j) > G2_2(index)
             Ttang2_2(index) = T(j);
             Ptang2_2(index) = Psatw(j);
             break
@@ -779,8 +779,7 @@ end
 for index=1:length(air_press_AC3)
     G1_3(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_3(index)
+        if dPsatw_dTsatw(j) > G1_3(index)
             Ttang1_3(index) = T(j);
             Ptang1_3(index) = Psatw(j);
             break
@@ -790,8 +789,7 @@ for index=1:length(air_press_AC3)
     
     G2_3(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G2_3(index)
+        if dPsatw_dTsatw(j) > G2_3(index)
             Ttang2_3(index) = T(j);
             Ptang2_3(index) = Psatw(j);
             break
@@ -803,8 +801,7 @@ end
 for index=1:length(air_press_AC4)
     G1_4(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_4(index)
+        if dPsatw_dTsatw(j) > G1_4(index)
             Ttang1_4(index) = T(j);
             Ptang1_4(index) = Psatw(j);
             break
@@ -814,8 +811,7 @@ for index=1:length(air_press_AC4)
     
     G2_4(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G2_4(index)
+        if dPsatw_dTsatw(j) > G2_4(index)
             Ttang2_4(index) = T(j);
             Ptang2_4(index) = Psatw(j);
             break
@@ -827,8 +823,7 @@ end
 for index=1:length(air_press_AC5)
     G1_5(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_5(index)
+        if dPsatw_dTsatw(j) > G1_5(index)
             Ttang1_5(index) = T(j);
             Ptang1_5(index) = Psatw(j);
             break
@@ -838,8 +833,7 @@ for index=1:length(air_press_AC5)
     
     G2_5(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G2_5(index)
+        if dPsatw_dTsatw(j) > G2_5(index)
             Ttang2_5(index) = T(j);
             Ptang2_5(index) = Psatw(j);
             break
@@ -851,8 +845,7 @@ end
 for index=1:length(air_press_AC6)
     G1_6(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_6(index)
+        if dPsatw_dTsatw(j) > G1_6(index)
             Ttang1_6(index) = T(j);
             Ptang1_6(index) = Psatw(j);
             break
@@ -862,8 +855,7 @@ for index=1:length(air_press_AC6)
     
     G2_6(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G2_6(index)
+        if dPsatw_dTsatw(j) > G2_6(index)
             Ttang2_6(index) = T(j);
             Ptang2_6(index) = Psatw(j);
             break
@@ -875,8 +867,7 @@ end
 for index=1:length(air_press_AC7)
    G1_7(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_7(index)
+        if dPsatw_dTsatw(j) > G1_7(index)
             Ttang1_7(index) = T(j);
             Ptang1_7(index) = Psatw(j);
             break
@@ -884,40 +875,37 @@ for index=1:length(air_press_AC7)
     end
     Psac1_7(index,:) = Ptang1_7(index)+G1_7(index)*(T(:)-Ttang1_7(index)); %tangent threshold curve
     
-    G2_7(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
-    for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G2_7(index)
-            Ttang2_7(index) = T(j);
-            Ptang2_7(index) = Psatw(j);
-            break
-        end
-    end
-    Psac2_7(index,:) = Ptang2_7(index)+G2_7(index)*(T(:)-Ttang2_7(index)); %tangent threshold curve
+%     G2_7(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+%     for j=1:length(T)-1
+%         if dPsatw_dTsatw(j) > G2_7(index)
+%             Ttang2_7(index) = T(j);
+%             Ptang2_7(index) = Psatw(j);
+%             break
+%         end
+%     end
+%     Psac2_7(index,:) = Ptang2_7(index)+G2_7(index)*(T(:)-Ttang2_7(index)); %tangent threshold curve
 end
 
 for index=1:length(air_press_AC8)
     G1_8(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G1_8(index)
+        if dPsatw_dTsatw(j) > G1_8(index)
             Ttang1_8(index) = T(j);
             Ptang1_8(index) = Psatw(j);
             break
         end
     end
-    Psac1_8(index,:) = Ptang1_8(index)+G1_8(index)*(T(:)-Ttang1_8(index)); %tangent threshold curve
-    
-    G2_8(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
-    for j=1:length(T)-1
-        dPsatw_dTsatw = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
-        if dPsatw_dTsatw > G2_8(index)
-            Ttang2_8(index) = T(j);
-            Ptang2_8(index) = Psatw(j);
-            break
-        end
-    end
-    Psac2_8(index,:) = Ptang2_8(index)+G2_8(index)*(T(:)-Ttang2_8(index)); %tangent threshold curve
+Psac1_8(index,:) = Ptang1_8(index)+G1_8(index)*(T(:)-Ttang1_8(index)); %tangent threshold curve
+%     
+%     G2_8(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+%     for j=1:length(T)-1
+%         if dPsatw_dTsatw(j) > G2_8(index)
+%             Ttang2_8(index) = T(j);
+%             Ptang2_8(index) = Psatw(j);
+%             break
+%         end
+%     end
+%     Psac2_8(index,:) = Ptang2_8(index)+G2_8(index)*(T(:)-Ttang2_8(index)); %tangent threshold curve
 end
 
 
