@@ -708,19 +708,18 @@ indexSAC1_1=0;
 indexSAC2_1=0;
 indexSAC1_2=0;
 indexSAC2_2=0;
-indexSAC1_3=0;
-indexSAC2_3=0;
-indexSAC1_4=0;
-indexSAC2_4=0;
-indexSAC1_5=0;
-indexSAC2_5=0;
-indexSAC1_6=0;
-indexSAC2_6=0;
-indexSAC1_7=0;
-indexSAC2_7=0;
-indexSAC1_8=0;
-indexSAC2_8=0;
-ROBUST=0;
+indexSAC3_1=0;
+indexSAC3_2=0;
+indexSAC4_1=0;
+indexSAC4_2=0;
+indexSAC5_1=0;
+indexSAC5_2=0;
+indexSAC6_1=0;
+indexSAC6_2=0;
+indexSAC7_1=0;
+indexSAC7_2=0;
+indexSAC8_1=0;
+indexSAC8_2=0;
 
 for index=1:length(air_press_AC1)
     G1_1(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
@@ -737,7 +736,7 @@ for index=1:length(air_press_AC1)
         end
     end
     Pline1_1(index,:)= H2O_gas_PC21(index).*air_press_AC1(index)/(10^6) + G1_1(index) * (T(:)-air_temp_AC1(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_1(index,:), Tsatw, Psatw, ROBUST))==0
+    if isempty(intersections(Pline1_1(index,:), T, Psatw, Tsatw))=0
         indexSAC1_1=indexSAC1_1+1;
     end
     Psac1_1(index,:) = Ptang1_1(index)+G1_1(index)*(T(:)-Ttang1_1(index)); %tangent threshold curve
@@ -756,7 +755,7 @@ for index=1:length(air_press_AC1)
         end
     end
     Pline2_1(index,:)= H2O_gas_PC21(index).*air_press_AC1(index)/(10^6) + G2_1(index) * (T(:)-air_temp_AC1(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_1(index,:), Tsatw, Psatw, ROBUST))==0
+    if isempty(intersections(Pline2_1(index,:), T, Psatw, Tsatw))=0
         indexSAC2_1=indexSAC2_1+1;
     end
     Psac2_1(index,:) = Ptang2_1(index)+G2_1(index)*(T(:)-Ttang2_1(index)); %tangent threshold curve
@@ -777,7 +776,7 @@ for index=1:length(air_press_AC2)
         end
     end
     Pline1_2(index,:)= H2O_gas_PC22(index).*air_press_AC2(index)/(10^6) + G1_2(index) * (T(:)-air_temp_AC2(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_2(index,:), Tsatw, Psatw, ROBUST))==0
+    if isempty(intersections(Pline1_2(index,:), T, Psatw, Tsatw))=0
         indexSAC1_2=indexSAC1_2+1;
     end
     Psac1_2(index,:) = Ptang1_2(index)+G1_2(index)*(T(:)-Ttang1_2(index)); %tangent threshold curve
@@ -796,7 +795,7 @@ for index=1:length(air_press_AC2)
         end
     end
     Pline2_2(index,:)= H2O_gas_PC22(index).*air_press_AC2(index)/(10^6) + G2_2(index) * (T(:)-air_temp_AC2(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_2(index,:), Tsatw, Psatw, ROBUST))==0
+    if isempty(intersections(Pline2_2(index,:), T, Psatw, Tsatw))=0
         indexSAC2_2=indexSAC2_2+1;
     end
     Psac2_2(index,:) = Ptang2_2(index)+G2_2(index)*(T(:)-Ttang2_2(index)); %tangent threshold curve
@@ -817,7 +816,7 @@ for index=1:length(air_press_AC3)
         end
     end
     Pline1_3(index,:)= H2O_gas_PC23(index).*air_press_AC3(index)/(10^6) + G1_3(index) * (T(:)-air_temp_AC3(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_3(index,:), Tsatw, Psatw, ROBUST))==0
+    if isempty(intersections(Pline1_3(index,:), T, Psatw, Tsatw))=0
         indexSAC1_3=indexSAC1_3+1;
     end
     Psac1_3(index,:) = Ptang1_3(index)+G1_3(index)*(T(:)-Ttang1_3(index)); %tangent threshold curve
@@ -836,7 +835,7 @@ for index=1:length(air_press_AC3)
         end
     end
     Pline2_3(index,:)= H2O_gas_PC23(index).*air_press_AC3(index)/(10^6) + G2_3(index) * (T(:)-air_temp_AC3(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_3(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline2_3(index,:), T, Psatw, Tsatw)~=[]
         indexSAC2_3=indexSAC2_3+1;
     end
     Psac2_3(index,:) = Ptang2_3(index)+G2_3(index)*(T(:)-Ttang2_3(index)); %tangent threshold curve
@@ -857,7 +856,7 @@ for index=1:length(air_press_AC4)
         end
     end
     Pline1_4(index,:)= H2O_gas_PC24(index).*air_press_AC4(index)/(10^6) + G1_4(index) * (T(:)-air_temp_AC4(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_4(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline1_4(index,:), T, Psatw, Tsatw)~=[]
         indexSAC1_4=indexSAC1_4+1;
     end
     Psac1_4(index,:) = Ptang1_4(index)+G1_4(index)*(T(:)-Ttang1_4(index)); %tangent threshold curve
@@ -876,7 +875,7 @@ for index=1:length(air_press_AC4)
         end
     end
     Pline2_4(index,:)= H2O_gas_PC24(index).*air_press_AC4(index)/(10^6) + G2_4(index) * (T(:)-air_temp_AC4(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_4(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline2_4(index,:), T, Psatw, Tsatw)~=[]
         indexSAC2_4=indexSAC2_4+1;
     end
     Psac2_4(index,:) = Ptang2_4(index)+G2_4(index)*(T(:)-Ttang2_4(index)); %tangent threshold curve
@@ -897,7 +896,7 @@ for index=1:length(air_press_AC5)
         end
     end
     Pline1_5(index,:)= H2O_gas_PC25(index).*air_press_AC5(index)/(10^6) + G1_5(index) * (T(:)-air_temp_AC5(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_5(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline1_5(index,:), T, Psatw, Tsatw)~=[]
         indexSAC1_5=indexSAC1_5+1;
     end
     Psac1_5(index,:) = Ptang1_5(index)+G1_5(index)*(T(:)-Ttang1_5(index)); %tangent threshold curve
@@ -916,7 +915,7 @@ for index=1:length(air_press_AC5)
         end
     end
     Pline2_5(index,:)= H2O_gas_PC25(index).*air_press_AC5(index)/(10^6) + G2_5(index) * (T(:)-air_temp_AC5(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_5(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline2_5(index,:), T, Psatw, Tsatw)~=[]
         indexSAC2_5=indexSAC2_5+1;
     end
     Psac2_5(index,:) = Ptang2_5(index)+G2_5(index)*(T(:)-Ttang2_5(index)); %tangent threshold curve
@@ -937,7 +936,7 @@ for index=1:length(air_press_AC6)
         end
     end
     Pline1_6(index,:)= H2O_gas_PC26(index).*air_press_AC6(index)/(10^6) + G1_6(index) * (T(:)-air_temp_AC6(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_6(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline1_6(index,:), T, Psatw, Tsatw)~=[]
         indexSAC1_6=indexSAC1_6+1;
     end
     Psac1_6(index,:) = Ptang1_6(index)+G1_6(index)*(T(:)-Ttang1_6(index)); %tangent threshold curve
@@ -956,7 +955,7 @@ for index=1:length(air_press_AC6)
         end
     end
     Pline2_6(index,:)= H2O_gas_PC26(index).*air_press_AC6(index)/(10^6) + G2_6(index) * (T(:)-air_temp_AC6(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_6(index,:), Tsatw, Psatw, ROBUST))==0
+    if isempty(intersections(Pline2_6(index,:), T, Psatw, Tsatw))=0
         indexSAC2_6=indexSAC2_6+1;
     end
     Psac2_6(index,:) = Ptang2_6(index)+G2_6(index)*(T(:)-Ttang2_6(index)); %tangent threshold curve
@@ -977,7 +976,7 @@ for index=1:length(air_press_AC7)
         end
     end
     Pline1_7(index,:)= H2O_gas_PC27(index).*air_press_AC7(index)/(10^6) + G1_7(index) * (T(:)-air_temp_AC7(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_7(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline1_7(index,:), T, Psatw, Tsatw)~=[]
         indexSAC1_7=indexSAC1_7+1;
     end
     Psac1_7(index,:) = Ptang1_7(index)+G1_7(index)*(T(:)-Ttang1_7(index)); %tangent threshold curve
@@ -996,7 +995,7 @@ for index=1:length(air_press_AC7)
         end
     end
     Pline2_7(index,:)= H2O_gas_PC27(index).*air_press_AC7(index)/(10^6) + G2_7(index) * (T(:)-air_temp_AC7(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_7(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline2_7(index,:), T, Psatw, Tsatw)~=[]
         indexSAC2_7=indexSAC2_7+1;
     end
     Psac2_7(index,:) = Ptang2_7(index)+G2_7(index)*(T(:)-Ttang2_7(index)); %tangent threshold curve
@@ -1017,7 +1016,7 @@ for index=1:length(air_press_AC8)
         end
     end
     Pline1_8(index,:)= H2O_gas_PC28(index).*air_press_AC8(index)/(10^6) + G1_8(index) * (T(:)-air_temp_AC8(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline1_8(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline1_8(index,:), T, Psatw, Tsatw)~=[]
         indexSAC1_8=indexSAC1_8+1;
     end
     Psac1_8(index,:) = Ptang1_8(index)+G1_8(index)*(T(:)-Ttang1_8(index)); %tangent threshold curve
@@ -1036,7 +1035,7 @@ for index=1:length(air_press_AC8)
         end
     end
     Pline2_8(index,:)= H2O_gas_PC28(index).*air_press_AC8(index)/(10^6) + G2_8(index) * (T(:)-air_temp_AC8(index)); %Curve that goes through the studied point
-    if isempty(intersections(T, Pline2_8(index,:), Tsatw, Psatw, ROBUST))==0
+    if intersections(Pline2_8(index,:), T, Psatw, Tsatw)~=[]
         indexSAC2_8=indexSAC2_8+1;
     end
     Psac2_8(index,:) = Ptang2_8(index)+G2_8(index)*(T(:)-Ttang2_8(index)); %tangent threshold curve
