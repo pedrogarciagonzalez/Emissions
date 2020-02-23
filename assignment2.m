@@ -12,11 +12,12 @@ IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         UTC1(index)=IAGOS(1+(index-1)*numbervariables,:);
         air_press_AC1(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC1(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC21(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC1(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -24,16 +25,18 @@ end
 air_press_AC1=air_press_AC1(air_press_AC1~=0);
 air_temp_AC1=air_temp_AC1(air_temp_AC1~=0);
 H2O_gas_PC21=H2O_gas_PC21(H2O_gas_PC21~=0);
+air_speed_AC1=air_speed_AC1(air_speed_AC1~=0);
 
 IAGOSdata=fopen('IAGOS_timeseries_2019021102051591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC2(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC2(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC22(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC2(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -41,16 +44,18 @@ end
 air_press_AC2=air_press_AC2(air_press_AC2~=0);
 air_temp_AC2=air_temp_AC2(air_temp_AC2~=0);
 H2O_gas_PC22=H2O_gas_PC22(H2O_gas_PC22~=0);
+air_speed_AC2=air_speed_AC2(air_speed_AC2~=0);
 
 IAGOSdata=fopen('IAGOS_timeseries_2019021122212591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC3(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC3(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC23(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC3(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -58,16 +63,18 @@ end
 air_press_AC3=air_press_AC3(air_press_AC3~=0);
 air_temp_AC3=air_temp_AC3(air_temp_AC3~=0);
 H2O_gas_PC23=H2O_gas_PC23(H2O_gas_PC23~=0);
+air_speed_AC3=air_speed_AC3(air_speed_AC3~=0);
 
 IAGOSdata=fopen('IAGOS_timeseries_2019021216295591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC4(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC4(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC24(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC4(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -75,16 +82,18 @@ end
 air_press_AC4=air_press_AC4(air_press_AC4~=0);
 air_temp_AC4=air_temp_AC4(air_temp_AC4~=0);
 H2O_gas_PC24=H2O_gas_PC24(H2O_gas_PC24~=0);
+air_speed_AC4=air_speed_AC4(air_speed_AC4~=0);
 
 IAGOSdata=fopen('IAGOS_timeseries_2019042914412591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC5(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC5(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC25(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC5(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -92,16 +101,18 @@ end
 air_press_AC5=air_press_AC5(air_press_AC5~=0);
 air_temp_AC5=air_temp_AC5(air_temp_AC5~=0);
 H2O_gas_PC25=H2O_gas_PC25(H2O_gas_PC25~=0);
+air_speed_AC5=air_speed_AC5(air_speed_AC5~=0);
 
 IAGOSdata=fopen('IAGOS_timeseries_2019043004153591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC6(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC6(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC26(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC6(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -109,16 +120,18 @@ end
 air_press_AC6=air_press_AC6(air_press_AC6~=0);
 air_temp_AC6=air_temp_AC6(air_temp_AC6~=0);
 H2O_gas_PC26=H2O_gas_PC26(H2O_gas_PC26~=0);
+air_speed_AC6=air_speed_AC6(air_speed_AC6~=0);
 
 IAGOSdata=fopen('IAGOS_timeseries_2019021011295591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC7(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC7(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC27(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC7(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -126,16 +139,18 @@ end
 air_press_AC7=air_press_AC7(air_press_AC7~=0);
 air_temp_AC7=air_temp_AC7(air_temp_AC7~=0);
 H2O_gas_PC27=H2O_gas_PC27(H2O_gas_PC27~=0);
+air_speed_AC7=air_speed_AC7(air_speed_AC7~=0);
 
 IAGOSdata=fopen('IAGOS_timeseries_2019021011295591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC8(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC8(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC28(index)=IAGOS(28+(index-1)*numbervariables,:);
+        air_speed_AC8(index)=IAGOS(12+(index-1)*numbervariables,:);
     end
 end
 
@@ -143,6 +158,7 @@ end
 air_press_AC8=air_press_AC8(air_press_AC8~=0);
 air_temp_AC8=air_temp_AC8(air_temp_AC8~=0);
 H2O_gas_PC28=H2O_gas_PC28(H2O_gas_PC28~=0);
+air_speed_AC8=air_speed_AC8(air_speed_AC8~=0);
 
 %Overall propulsive efficiency of aircraft
 eff1=0.34;
@@ -251,7 +267,7 @@ for index=1:length(air_temp_AC1)
     PH2OISSR1(index)=H2O_gas_PC21(index).*air_press_AC1(index)/(10^6);
     RHi1(index)=PH2OISSR1(index)./esiISSR1(index)*100;
     if RHi1(index)>100
-        indexISSR1=indexISSR1+1;
+        indexISSR1=indexISSR1+1; %TRY TO ACCOUNT FOR 30 SEC
         if air_temp_AC1(index)<Tfreeze
             indexTthresISSR1=indexTthresISSR1+1;
         end
@@ -512,6 +528,7 @@ indexSAC1_7=0;
 indexSAC2_7=0;
 indexSAC1_8=0;
 indexSAC2_8=0;
+
 indexpers1_1 = 0;
 indexpers2_1 = 0;
 indexpers1_2 = 0;
@@ -528,7 +545,40 @@ indexpers1_7 = 0;
 indexpers2_7 = 0;
 indexpers1_8 = 0;
 indexpers2_8 = 0;
-%ROBUST=0;
+
+indextimepers1_1=0;
+indextimepers2_1=0;
+indextimepers1_2=0;
+indextimepers2_2=0;
+indextimepers1_3=0;
+indextimepers2_3=0;
+indextimepers1_4=0;
+indextimepers2_4=0;
+indextimepers1_5=0;
+indextimepers2_5=0;
+indextimepers1_6=0;
+indextimepers2_6=0;
+indextimepers1_7=0;
+indextimepers2_7=0;
+indextimepers1_8=0;
+indextimepers2_8=0;
+
+lengthcontrail1_1(1)=0;
+lengthcontrail2_1(1)=0;
+lengthcontrail1_2(1)=0;
+lengthcontrail2_2(1)=0;
+lengthcontrail1_3(1)=0;
+lengthcontrail2_3(1)=0;
+lengthcontrail1_4(1)=0;
+lengthcontrail2_4(1)=0;
+lengthcontrail1_5(1)=0;
+lengthcontrail2_5(1)=0;
+lengthcontrail1_6(1)=0;
+lengthcontrail2_6(1)=0;
+lengthcontrail1_7(1)=0;
+lengthcontrail2_7(1)=0;
+lengthcontrail1_8(1)=0;
+lengthcontrail2_8(1)=0;
 
 for index=1:length(air_press_AC1)
     G1_1(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
@@ -558,6 +608,10 @@ for index=1:length(air_press_AC1)
             RHw1(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw1(index)<100
                 indexpers1_1 = indexpers1_1+1;
+                lengthcontrail1_1 = lengthcontrail1_1+5*air_speed_AC1(index)/1000; %km
+                if RHi1(index-1)<100 || RHw1(index-1)>100
+                    indextimepers1_1=indextimepers1_1+1;
+                end
             end
         end
     end
@@ -589,6 +643,10 @@ for index=1:length(air_press_AC1)
             RHw1(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw1(index)<100
                 indexpers2_1 = indexpers2_1+1;
+                lengthcontrail2_1 = lengthcontrail2_1+5*air_speed_AC1(index)/1000; %km
+                if RHi1(index-1)<100 || RHw1(index-1)>100
+                    indextimepers2_1=indextimepers2_1+1;
+                end
             end
         end
         %if Pline2_1(index,:) >= Psati(:) & Pline2_1(index,:) <= Psatw(:)
@@ -625,6 +683,10 @@ for index=1:length(air_press_AC2)
             RHw2(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw2(index)<100
                 indexpers1_2 = indexpers1_2+1;
+                lengthcontrail1_2 = lengthcontrail1_2+5*air_speed_AC2(index)/1000; %km
+                if RHi2(index-1)<100 || RHw2(index-1)>100
+                    indextimepers1_2=indextimepers1_2+1;
+                end
             end
         end
     end
@@ -656,6 +718,10 @@ for index=1:length(air_press_AC2)
             RHw2(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw2(index)<100
                 indexpers2_2 = indexpers2_2+1;
+                lengthcontrail2_2 = lengthcontrail2_2+5*air_speed_AC2(index)/1000; %km
+                if RHi2(index-1)<100 || RHw2(index-1)>100
+                    indextimepers2_2=indextimepers2_2+1;
+                end
             end
         end
     end
@@ -689,6 +755,10 @@ for index=1:length(air_press_AC3)
             RHw3(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw3(index)<100
                 indexpers1_3 = indexpers1_3+1;
+                lengthcontrail1_3 = lengthcontrail1_3+5*air_speed_AC3(index)/1000; %km
+                if RHi3(index-1)<100 || RHw3(index-1)>100
+                    indextimepers1_3=indextimepers1_3+1;
+                end
             end
         end
     end
@@ -720,6 +790,10 @@ for index=1:length(air_press_AC3)
             RHw3(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw3(index)<100
                 indexpers2_3 = indexpers2_3+1;
+                lengthcontrail2_3 = lengthcontrail2_3+5*air_speed_AC3(index)/1000; %km
+                if RHi3(index-1)<100 || RHw3(index-1)>100
+                    indextimepers2_3=indextimepers2_3+1;
+                end
             end
         end
     end
@@ -753,6 +827,10 @@ for index=1:length(air_press_AC4)
             RHw4(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw4(index)<100
                 indexpers1_4 = indexpers1_4+1;
+                lengthcontrail1_4 = lengthcontrail1_4+5*air_speed_AC4(index)/1000; %km
+                if RHi4(index-1)<100 || RHw4(index-1)>100
+                    indextimepers1_4=indextimepers1_4+1;
+                end
             end
         end
     end
@@ -784,6 +862,10 @@ for index=1:length(air_press_AC4)
             RHw4(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw4(index)<100
                 indexpers2_4 = indexpers2_4+1;
+                lengthcontrail2_4 = lengthcontrail2_4+5*air_speed_AC4(index)/1000; %km
+                if RHi4(index-1)<100 || RHw4(index-1)>100
+                    indextimepers2_4=indextimepers2_4+1;
+                end
             end
         end
     end
@@ -817,6 +899,10 @@ for index=1:length(air_press_AC5)
             RHw5(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw5(index)<100
                 indexpers1_5 = indexpers1_5+1;
+                lengthcontrail1_5 = lengthcontrail1_5+5*air_speed_AC5(index)/1000; %km
+                if RHi5(index-1)<100 || RHw5(index-1)>100
+                    indextimepers1_5=indextimepers1_5+1;
+                end
             end
         end
     end
@@ -848,6 +934,10 @@ for index=1:length(air_press_AC5)
             RHw5(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw5(index)<100
                 indexpers2_5 = indexpers2_5+1;
+                lengthcontrail2_5 = lengthcontrail2_5+5*air_speed_AC5(index)/1000; %km
+                if RHi5(index-1)<100 || RHw5(index-1)>100
+                    indextimepers2_5=indextimepers2_5+1;
+                end
             end
         end
     end
@@ -881,6 +971,10 @@ for index=1:length(air_press_AC6)
             RHw6(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw6(index)<100
                 indexpers1_6 = indexpers1_6+1;
+                lengthcontrail1_6 = lengthcontrail1_6+5*air_speed_AC6(index)/1000; %km
+                if RHi6(index-1)<100 || RHw6(index-1)>100
+                    indextimepers1_6=indextimepers1_6+1;
+                end
             end
         end
     end
@@ -912,6 +1006,10 @@ for index=1:length(air_press_AC6)
             RHw6(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw6(index)<100
                 indexpers2_6 = indexpers2_6+1;
+                lengthcontrail2_6 = lengthcontrail2_6+5*air_speed_AC6(index)/1000; %km
+                if RHi6(index-1)<100 || RHw6(index-1)>100
+                    indextimepers2_6=indextimepers2_6+1;
+                end
             end
         end
     end
@@ -945,6 +1043,10 @@ for index=1:length(air_press_AC7)
             RHw7(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw7(index)<100
                 indexpers1_7 = indexpers1_7+1;
+                lengthcontrail1_7 = lengthcontrail1_7+5*air_speed_AC7(index)/1000; %km
+                if RHi7(index-1)<100 || RHw7(index-1)>100
+                    indextimepers1_7=indextimepers1_7+1;
+                end
             end
         end
     end
@@ -976,6 +1078,10 @@ for index=1:length(air_press_AC7)
             RHw7(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw7(index)<100
                 indexpers2_7 = indexpers2_7+1;
+                lengthcontrail2_7 = lengthcontrail2_7+5*air_speed_AC7(index)/1000; %km
+                if RHi7(index-1)<100 || RHw7(index-1)>100
+                    indextimepers2_7=indextimepers2_7+1;
+                end
             end
         end
     end
@@ -1009,6 +1115,10 @@ for index=1:length(air_press_AC8)
             RHw8(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw8(index)<100
                 indexpers1_8 = indexpers1_8+1;
+                lengthcontrail1_8 = lengthcontrail1_8+5*air_speed_AC8(index)/1000; %km
+                if RHi8(index-1)<100 || RHw8(index-1)>100
+                    indextimepers1_8=indextimepers1_8+1;
+                end
             end
         end
     end
@@ -1040,6 +1150,10 @@ for index=1:length(air_press_AC8)
             RHw8(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw8(index)<100
                 indexpers2_8 = indexpers2_8+1;
+                lengthcontrail2_8 = lengthcontrail2_8+5*air_speed_AC8(index)/1000; %km
+                if RHi8(index-1)<100 || RHw8(index-1)>100
+                    indextimepers2_8=indextimepers2_8+1;
+                end
             end
         end
     end
@@ -1079,6 +1193,25 @@ percentpers1_7=indexpers1_7/length(air_temp_AC7)*100;
 percentpers2_7=indexpers2_7/length(air_temp_AC7)*100;
 percentpers1_8=indexpers1_8/length(air_temp_AC8)*100;
 percentpers2_8=indexpers2_8/length(air_temp_AC8)*100;
+
+% PART E: Mean contrail length
+meancontraillength1_1=lengthcontrail1_1/indextimepers1_1;
+meancontraillength2_1=lengthcontrail2_1/indextimepers2_1;
+meancontraillength1_2=lengthcontrail1_2/indextimepers1_2;
+meancontraillength2_2=lengthcontrail2_2/indextimepers2_2;
+meancontraillength1_3=lengthcontrail1_3/indextimepers1_3;
+meancontraillength2_3=lengthcontrail2_3/indextimepers2_3;
+meancontraillength1_4=lengthcontrail1_4/indextimepers1_4;
+meancontraillength2_4=lengthcontrail2_4/indextimepers2_4;
+meancontraillength1_5=lengthcontrail1_5/indextimepers1_5;
+meancontraillength2_5=lengthcontrail2_5/indextimepers2_5;
+meancontraillength1_6=lengthcontrail1_6/indextimepers1_6;
+meancontraillength2_6=lengthcontrail2_6/indextimepers2_6;
+meancontraillength1_7=lengthcontrail1_7/indextimepers1_7;
+meancontraillength2_7=lengthcontrail2_7/indextimepers2_7;
+meancontraillength1_8=lengthcontrail1_8/indextimepers1_8;
+meancontraillength2_8=lengthcontrail2_8/indextimepers2_8;
+
 
 %% USELESS PART
 
