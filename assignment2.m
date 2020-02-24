@@ -12,7 +12,7 @@ IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         UTC1(index)=IAGOS(1+(index-1)*numbervariables,:);
         air_press_AC1(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC1(index)=IAGOS(16+(index-1)*numbervariables,:);
@@ -32,7 +32,7 @@ IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 &&  IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC2(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC2(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC22(index)=IAGOS(28+(index-1)*numbervariables,:);
@@ -51,7 +51,7 @@ IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 &&  IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC3(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC3(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC23(index)=IAGOS(28+(index-1)*numbervariables,:);
@@ -70,7 +70,7 @@ IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 &&  IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC4(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC4(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC24(index)=IAGOS(28+(index-1)*numbervariables,:);
@@ -89,7 +89,7 @@ IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 &&  IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC5(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC5(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC25(index)=IAGOS(28+(index-1)*numbervariables,:);
@@ -108,7 +108,7 @@ IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 &&  IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC6(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC6(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC26(index)=IAGOS(28+(index-1)*numbervariables,:);
@@ -122,12 +122,12 @@ air_temp_AC6=air_temp_AC6(air_temp_AC6~=0);
 H2O_gas_PC26=H2O_gas_PC26(H2O_gas_PC26~=0);
 air_speed_AC6=air_speed_AC6(air_speed_AC6~=0);
 
-IAGOSdata=fopen('IAGOS_timeseries_2019021011295591.txt','r');
+IAGOSdata=fopen('IAGOS_timeseries_2019043020424591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 &&  IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC7(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC7(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC27(index)=IAGOS(28+(index-1)*numbervariables,:);
@@ -141,12 +141,12 @@ air_temp_AC7=air_temp_AC7(air_temp_AC7~=0);
 H2O_gas_PC27=H2O_gas_PC27(H2O_gas_PC27~=0);
 air_speed_AC7=air_speed_AC7(air_speed_AC7~=0);
 
-IAGOSdata=fopen('IAGOS_timeseries_2019021011295591.txt','r');
+IAGOSdata=fopen('IAGOS_timeseries_2019050116041591.txt','r');
 IAGOS=fscanf(IAGOSdata,'%g');
 fclose(IAGOSdata);
 
 for index=1:length(IAGOS)/numbervariables
-    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
+    if IAGOS(10+(index-1)*numbervariables,:)>0 && IAGOS(10+(index-1)*numbervariables,:)<30000 &&  IAGOS(16+(index-1)*numbervariables,:)>0 && IAGOS(28+(index-1)*numbervariables,:)>0 && IAGOS(12+(index-1)*numbervariables,:)>0
         air_press_AC8(index)=IAGOS(10+(index-1)*numbervariables,:);
         air_temp_AC8(index)=IAGOS(16+(index-1)*numbervariables,:);
         H2O_gas_PC28(index)=IAGOS(28+(index-1)*numbervariables,:);
@@ -165,7 +165,7 @@ eff1=0.34;
 eff2=0.8;
 
 %Time step
-timestep=UTC1(2)-UTC1(1);
+timestep=10; %sec
 
 %Assumed values
 cp=1003.5;
@@ -180,8 +180,6 @@ EIH2O=1.23; % kgemission/kgfuel
 
 %Temperature threshold SAC
 Tfreeze=273.15-38; %-38ºC in K
-
-%% OBTENTION OF SATURATION LINE
 
 %% OBTENTION OF SATURATION LINE
 
@@ -218,6 +216,8 @@ xlim([-60 -20])
 ylim([0 50])
 legend({'Water','Ice'},'Location','northwest')
 
+
+%Derivative of the water saturation line
 for j=1:length(T)-1
     dPsatw_dTsatw(j) = (Psatw(j+1)-Psatw(j))/(T(j+1)-T(j));
 end
@@ -453,53 +453,52 @@ indexTthres7=0;
 indexTthres8=0;
 
 for index=1:length(air_temp_AC1)
-    if air_temp_AC1(index)<Tfreeze && air_temp_AC1(index)>0
+    if air_temp_AC1(index)<Tfreeze
         indexTthres1=indexTthres1+1;
     end
 end
 
 for index=1:length(air_temp_AC2)
-    if air_temp_AC2(index)<Tfreeze && air_temp_AC2(index)>0
+    if air_temp_AC2(index)<Tfreeze
         indexTthres2=indexTthres2+1;
     end
 end
 
 for index=1:length(air_temp_AC3)
-    if air_temp_AC3(index)<Tfreeze && air_temp_AC3(index)>0
+    if air_temp_AC3(index)<Tfreeze
         indexTthres3=indexTthres3+1;
     end
 end
 
 for index=1:length(air_temp_AC4)
-    if air_temp_AC4(index)<Tfreeze && air_temp_AC4(index)>0
+    if air_temp_AC4(index)<Tfreeze
         indexTthres4=indexTthres4+1;
     end
 end
 
 for index=1:length(air_temp_AC5)
-    if air_temp_AC5(index)<Tfreeze && air_temp_AC5(index)>0
+    if air_temp_AC5(index)<Tfreeze
         indexTthres5=indexTthres5+1;
     end
 end
 
 for index=1:length(air_temp_AC6)
-    if air_temp_AC6(index)<Tfreeze && air_temp_AC6(index)>0
+    if air_temp_AC6(index)<Tfreeze
         indexTthres6=indexTthres6+1;
     end
 end
 
 for index=1:length(air_temp_AC7)
-    if air_temp_AC7(index)<Tfreeze && air_temp_AC7(index)>0
+    if air_temp_AC7(index)<Tfreeze
         indexTthres7=indexTthres7+1;
     end
 end
 
 for index=1:length(air_temp_AC8)
-    if air_temp_AC8(index)<Tfreeze && air_temp_AC8(index)>0
+    if air_temp_AC8(index)<Tfreeze
         indexTthres8=indexTthres8+1;
     end
 end
-
 
 %Computation of percentages
 percentTthres1=indexTthres1/length(air_temp_AC1)*100;
@@ -583,11 +582,6 @@ lengthcontrail2_8(1)=0;
 for index=1:length(air_press_AC1)
     G1_1(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_1(index)<0
-            Ttang1_1(index) = NaN;
-            Ptang1_1(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_1(index)
             Ttang1_1(index) = T(j);
             Ptang1_1(index) = Psatw(j);
@@ -595,9 +589,6 @@ for index=1:length(air_press_AC1)
         end
     end
     Pline1_1(index,:)= H2O_gas_PC21(index).*air_press_AC1(index)/(10^6) + G1_1(index) * (T(:)-air_temp_AC1(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_1(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_1=indexSAC1_1+1;
-    %     end
     Psac1_1(index,:) = Ptang1_1(index)+G1_1(index)*(T(:)-Ttang1_1(index)); %tangent threshold curve
     
     if Pline1_1(index,1) >= Psac1_1(index,1)
@@ -608,7 +599,7 @@ for index=1:length(air_press_AC1)
             RHw1(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw1(index)<100
                 indexpers1_1 = indexpers1_1+1;
-                lengthcontrail1_1 = lengthcontrail1_1+5*air_speed_AC1(index)/1000; %km
+                lengthcontrail1_1 = lengthcontrail1_1+timestep*air_speed_AC1(index)/1000; %km
                 if RHi1(index-1)<100 || RHw1(index-1)>100
                     indextimepers1_1=indextimepers1_1+1;
                 end
@@ -618,11 +609,6 @@ for index=1:length(air_press_AC1)
     
     G2_1(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_1(index)<0
-            Ttang2_1(index) = NaN;
-            Ptang2_1(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_1(index)
             Ttang2_1(index) = T(j);
             Ptang2_1(index) = Psatw(j);
@@ -630,9 +616,6 @@ for index=1:length(air_press_AC1)
         end
     end
     Pline2_1(index,:)= H2O_gas_PC21(index).*air_press_AC1(index)/(10^6) + G2_1(index) * (T(:)-air_temp_AC1(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_1(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_1=indexSAC2_1+1;
-    %     end
     Psac2_1(index,:) = Ptang2_1(index)+G2_1(index)*(T(:)-Ttang2_1(index)); %tangent threshold curve
     
     if Pline2_1(index,1) >= Psac2_1(index,1)
@@ -643,20 +626,17 @@ for index=1:length(air_press_AC1)
             RHw1(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw1(index)<100
                 indexpers2_1 = indexpers2_1+1;
-                lengthcontrail2_1 = lengthcontrail2_1+5*air_speed_AC1(index)/1000; %km
+                lengthcontrail2_1 = lengthcontrail2_1+timestep*air_speed_AC1(index)/1000; %km
                 if RHi1(index-1)<100 || RHw1(index-1)>100
                     indextimepers2_1=indextimepers2_1+1;
                 end
             end
         end
-        %if Pline2_1(index,:) >= Psati(:) & Pline2_1(index,:) <= Psatw(:)
-        %    indexpers2_1 = indexpers2_1+1;
-        %end
     end
 end
 
 for index=1:length(air_press_AC2)
-    G1_2(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G1_2(index)= air_press_AC2(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
         if G1_2(index)<0
             Ttang1_2(index) = NaN;
@@ -670,9 +650,6 @@ for index=1:length(air_press_AC2)
         end
     end
     Pline1_2(index,:)= H2O_gas_PC22(index).*air_press_AC2(index)/(10^6) + G1_2(index) * (T(:)-air_temp_AC2(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_2(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_2=indexSAC1_2+1;
-    %     end
     Psac1_2(index,:) = Ptang1_2(index)+G1_2(index)*(T(:)-Ttang1_2(index)); %tangent threshold curve
     
     if Pline1_2(index,1) >= Psac1_2(index,1)
@@ -683,7 +660,7 @@ for index=1:length(air_press_AC2)
             RHw2(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw2(index)<100
                 indexpers1_2 = indexpers1_2+1;
-                lengthcontrail1_2 = lengthcontrail1_2+5*air_speed_AC2(index)/1000; %km
+                lengthcontrail1_2 = lengthcontrail1_2+timestep*air_speed_AC2(index)/1000; %km
                 if RHi2(index-1)<100 || RHw2(index-1)>100
                     indextimepers1_2=indextimepers1_2+1;
                 end
@@ -691,13 +668,8 @@ for index=1:length(air_press_AC2)
         end
     end
     
-    G2_2(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+    G2_2(index)=air_press_AC2(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_2(index)<0
-            Ttang2_2(index) = NaN;
-            Ptang2_2(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_2(index)
             Ttang2_2(index) = T(j);
             Ptang2_2(index) = Psatw(j);
@@ -705,9 +677,6 @@ for index=1:length(air_press_AC2)
         end
     end
     Pline2_2(index,:)= H2O_gas_PC22(index).*air_press_AC2(index)/(10^6) + G2_2(index) * (T(:)-air_temp_AC2(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_2(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_2=indexSAC2_2+1;
-    %     end
     Psac2_2(index,:) = Ptang2_2(index)+G2_2(index)*(T(:)-Ttang2_2(index)); %tangent threshold curve
     
     if Pline2_2(index,1) >= Psac2_2(index,1)
@@ -718,7 +687,7 @@ for index=1:length(air_press_AC2)
             RHw2(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw2(index)<100
                 indexpers2_2 = indexpers2_2+1;
-                lengthcontrail2_2 = lengthcontrail2_2+5*air_speed_AC2(index)/1000; %km
+                lengthcontrail2_2 = lengthcontrail2_2+timestep*air_speed_AC2(index)/1000; %km
                 if RHi2(index-1)<100 || RHw2(index-1)>100
                     indextimepers2_2=indextimepers2_2+1;
                 end
@@ -728,13 +697,8 @@ for index=1:length(air_press_AC2)
 end
 
 for index=1:length(air_press_AC3)
-    G1_3(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G1_3(index)= air_press_AC3(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_3(index)<0
-            Ttang1_3(index) = NaN;
-            Ptang1_3(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_3(index)
             Ttang1_3(index) = T(j);
             Ptang1_3(index) = Psatw(j);
@@ -742,9 +706,6 @@ for index=1:length(air_press_AC3)
         end
     end
     Pline1_3(index,:)= H2O_gas_PC23(index).*air_press_AC3(index)/(10^6) + G1_3(index) * (T(:)-air_temp_AC3(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_3(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_3=indexSAC1_3+1;
-    %     end
     Psac1_3(index,:) = Ptang1_3(index)+G1_3(index)*(T(:)-Ttang1_3(index)); %tangent threshold curve
     
     if Pline1_3(index,1) >= Psac1_3(index,1)
@@ -755,7 +716,7 @@ for index=1:length(air_press_AC3)
             RHw3(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw3(index)<100
                 indexpers1_3 = indexpers1_3+1;
-                lengthcontrail1_3 = lengthcontrail1_3+5*air_speed_AC3(index)/1000; %km
+                lengthcontrail1_3 = lengthcontrail1_3+timestep*air_speed_AC3(index)/1000; %km
                 if RHi3(index-1)<100 || RHw3(index-1)>100
                     indextimepers1_3=indextimepers1_3+1;
                 end
@@ -763,13 +724,8 @@ for index=1:length(air_press_AC3)
         end
     end
     
-    G2_3(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+    G2_3(index)=air_press_AC3(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_3(index)<0
-            Ttang2_3(index) = NaN;
-            Ptang2_3(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_3(index)
             Ttang2_3(index) = T(j);
             Ptang2_3(index) = Psatw(j);
@@ -777,9 +733,6 @@ for index=1:length(air_press_AC3)
         end
     end
     Pline2_3(index,:)= H2O_gas_PC23(index).*air_press_AC3(index)/(10^6) + G2_3(index) * (T(:)-air_temp_AC3(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_3(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_3=indexSAC2_3+1;
-    %     end
     Psac2_3(index,:) = Ptang2_3(index)+G2_3(index)*(T(:)-Ttang2_3(index)); %tangent threshold curve
     
     if Pline2_3(index,1) >= Psac2_3(index,1)
@@ -790,7 +743,7 @@ for index=1:length(air_press_AC3)
             RHw3(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw3(index)<100
                 indexpers2_3 = indexpers2_3+1;
-                lengthcontrail2_3 = lengthcontrail2_3+5*air_speed_AC3(index)/1000; %km
+                lengthcontrail2_3 = lengthcontrail2_3+timestep*air_speed_AC3(index)/1000; %km
                 if RHi3(index-1)<100 || RHw3(index-1)>100
                     indextimepers2_3=indextimepers2_3+1;
                 end
@@ -800,13 +753,8 @@ for index=1:length(air_press_AC3)
 end
 
 for index=1:length(air_press_AC4)
-    G1_4(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G1_4(index)= air_press_AC4(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_4(index)<0
-            Ttang1_4(index) = NaN;
-            Ptang1_4(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_4(index)
             Ttang1_4(index) = T(j);
             Ptang1_4(index) = Psatw(j);
@@ -827,7 +775,7 @@ for index=1:length(air_press_AC4)
             RHw4(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw4(index)<100
                 indexpers1_4 = indexpers1_4+1;
-                lengthcontrail1_4 = lengthcontrail1_4+5*air_speed_AC4(index)/1000; %km
+                lengthcontrail1_4 = lengthcontrail1_4+timestep*air_speed_AC4(index)/1000; %km
                 if RHi4(index-1)<100 || RHw4(index-1)>100
                     indextimepers1_4=indextimepers1_4+1;
                 end
@@ -835,13 +783,8 @@ for index=1:length(air_press_AC4)
         end
     end
     
-    G2_4(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+    G2_4(index)=air_press_AC4(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_4(index)<0
-            Ttang2_4(index) = NaN;
-            Ptang2_4(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_4(index)
             Ttang2_4(index) = T(j);
             Ptang2_4(index) = Psatw(j);
@@ -849,9 +792,6 @@ for index=1:length(air_press_AC4)
         end
     end
     Pline2_4(index,:)= H2O_gas_PC24(index).*air_press_AC4(index)/(10^6) + G2_4(index) * (T(:)-air_temp_AC4(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_4(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_4=indexSAC2_4+1;
-    %     end
     Psac2_4(index,:) = Ptang2_4(index)+G2_4(index)*(T(:)-Ttang2_4(index)); %tangent threshold curve
     
     if Pline2_4(index,1) >= Psac2_4(index,1)
@@ -862,7 +802,7 @@ for index=1:length(air_press_AC4)
             RHw4(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw4(index)<100
                 indexpers2_4 = indexpers2_4+1;
-                lengthcontrail2_4 = lengthcontrail2_4+5*air_speed_AC4(index)/1000; %km
+                lengthcontrail2_4 = lengthcontrail2_4+timestep*air_speed_AC4(index)/1000; %km
                 if RHi4(index-1)<100 || RHw4(index-1)>100
                     indextimepers2_4=indextimepers2_4+1;
                 end
@@ -872,13 +812,8 @@ for index=1:length(air_press_AC4)
 end
 
 for index=1:length(air_press_AC5)
-    G1_5(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G1_5(index)= air_press_AC5(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_5(index)<0
-            Ttang1_5(index) = NaN;
-            Ptang1_5(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_5(index)
             Ttang1_5(index) = T(j);
             Ptang1_5(index) = Psatw(j);
@@ -886,9 +821,6 @@ for index=1:length(air_press_AC5)
         end
     end
     Pline1_5(index,:)= H2O_gas_PC25(index).*air_press_AC5(index)/(10^6) + G1_5(index) * (T(:)-air_temp_AC5(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_5(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_5=indexSAC1_5+1;
-    %     end
     Psac1_5(index,:) = Ptang1_5(index)+G1_5(index)*(T(:)-Ttang1_5(index)); %tangent threshold curve
     
     if Pline1_5(index,1) >= Psac1_5(index,1)
@@ -899,7 +831,7 @@ for index=1:length(air_press_AC5)
             RHw5(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw5(index)<100
                 indexpers1_5 = indexpers1_5+1;
-                lengthcontrail1_5 = lengthcontrail1_5+5*air_speed_AC5(index)/1000; %km
+                lengthcontrail1_5 = lengthcontrail1_5+timestep*air_speed_AC5(index)/1000; %km
                 if RHi5(index-1)<100 || RHw5(index-1)>100
                     indextimepers1_5=indextimepers1_5+1;
                 end
@@ -907,13 +839,8 @@ for index=1:length(air_press_AC5)
         end
     end
     
-    G2_5(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+    G2_5(index)=air_press_AC5(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_5(index)<0
-            Ttang2_5(index) = NaN;
-            Ptang2_5(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_5(index)
             Ttang2_5(index) = T(j);
             Ptang2_5(index) = Psatw(j);
@@ -921,9 +848,6 @@ for index=1:length(air_press_AC5)
         end
     end
     Pline2_5(index,:)= H2O_gas_PC25(index).*air_press_AC5(index)/(10^6) + G2_5(index) * (T(:)-air_temp_AC5(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_5(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_5=indexSAC2_5+1;
-    %     end
     Psac2_5(index,:) = Ptang2_5(index)+G2_5(index)*(T(:)-Ttang2_5(index)); %tangent threshold curve
     
     if Pline2_5(index,1) >= Psac2_5(index,1)
@@ -934,7 +858,7 @@ for index=1:length(air_press_AC5)
             RHw5(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw5(index)<100
                 indexpers2_5 = indexpers2_5+1;
-                lengthcontrail2_5 = lengthcontrail2_5+5*air_speed_AC5(index)/1000; %km
+                lengthcontrail2_5 = lengthcontrail2_5+timestep*air_speed_AC5(index)/1000; %km
                 if RHi5(index-1)<100 || RHw5(index-1)>100
                     indextimepers2_5=indextimepers2_5+1;
                 end
@@ -944,13 +868,8 @@ for index=1:length(air_press_AC5)
 end
 
 for index=1:length(air_press_AC6)
-    G1_6(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G1_6(index)= air_press_AC6(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_6(index)<0
-            Ttang1_6(index) = NaN;
-            Ptang1_6(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_6(index)
             Ttang1_6(index) = T(j);
             Ptang1_6(index) = Psatw(j);
@@ -958,9 +877,6 @@ for index=1:length(air_press_AC6)
         end
     end
     Pline1_6(index,:)= H2O_gas_PC26(index).*air_press_AC6(index)/(10^6) + G1_6(index) * (T(:)-air_temp_AC6(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_6(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_6=indexSAC1_6+1;
-    %     end
     Psac1_6(index,:) = Ptang1_6(index)+G1_6(index)*(T(:)-Ttang1_6(index)); %tangent threshold curve
     
     if Pline1_6(index,1) >= Psac1_6(index,1)
@@ -971,7 +887,7 @@ for index=1:length(air_press_AC6)
             RHw6(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw6(index)<100
                 indexpers1_6 = indexpers1_6+1;
-                lengthcontrail1_6 = lengthcontrail1_6+5*air_speed_AC6(index)/1000; %km
+                lengthcontrail1_6 = lengthcontrail1_6+timestep*air_speed_AC6(index)/1000; %km
                 if RHi6(index-1)<100 || RHw6(index-1)>100
                     indextimepers1_6=indextimepers1_6+1;
                 end
@@ -979,13 +895,8 @@ for index=1:length(air_press_AC6)
         end
     end
     
-    G2_6(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+    G2_6(index)=air_press_AC6(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_6(index)<0
-            Ttang2_6(index) = NaN;
-            Ptang2_6(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_6(index)
             Ttang2_6(index) = T(j);
             Ptang2_6(index) = Psatw(j);
@@ -993,9 +904,6 @@ for index=1:length(air_press_AC6)
         end
     end
     Pline2_6(index,:)= H2O_gas_PC26(index).*air_press_AC6(index)/(10^6) + G2_6(index) * (T(:)-air_temp_AC6(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_6(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_6=indexSAC2_6+1;
-    %     end
     Psac2_6(index,:) = Ptang2_6(index)+G2_6(index)*(T(:)-Ttang2_6(index)); %tangent threshold curve
     
     if Pline2_6(index,1) >= Psac2_6(index,1)
@@ -1006,7 +914,7 @@ for index=1:length(air_press_AC6)
             RHw6(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw6(index)<100
                 indexpers2_6 = indexpers2_6+1;
-                lengthcontrail2_6 = lengthcontrail2_6+5*air_speed_AC6(index)/1000; %km
+                lengthcontrail2_6 = lengthcontrail2_6+timestep*air_speed_AC6(index)/1000; %km
                 if RHi6(index-1)<100 || RHw6(index-1)>100
                     indextimepers2_6=indextimepers2_6+1;
                 end
@@ -1016,13 +924,8 @@ for index=1:length(air_press_AC6)
 end
 
 for index=1:length(air_press_AC7)
-    G1_7(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G1_7(index)= air_press_AC7(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_7(index)<0
-            Ttang1_7(index) = NaN;
-            Ptang1_7(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_7(index)
             Ttang1_7(index) = T(j);
             Ptang1_7(index) = Psatw(j);
@@ -1030,9 +933,6 @@ for index=1:length(air_press_AC7)
         end
     end
     Pline1_7(index,:)= H2O_gas_PC27(index).*air_press_AC7(index)/(10^6) + G1_7(index) * (T(:)-air_temp_AC7(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_7(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_7=indexSAC1_7+1;
-    %     end
     Psac1_7(index,:) = Ptang1_7(index)+G1_7(index)*(T(:)-Ttang1_7(index)); %tangent threshold curve
     
     if Pline1_7(index,1) >= Psac1_7(index,1)
@@ -1043,7 +943,7 @@ for index=1:length(air_press_AC7)
             RHw7(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw7(index)<100
                 indexpers1_7 = indexpers1_7+1;
-                lengthcontrail1_7 = lengthcontrail1_7+5*air_speed_AC7(index)/1000; %km
+                lengthcontrail1_7 = lengthcontrail1_7+timestep*air_speed_AC7(index)/1000; %km
                 if RHi7(index-1)<100 || RHw7(index-1)>100
                     indextimepers1_7=indextimepers1_7+1;
                 end
@@ -1051,13 +951,8 @@ for index=1:length(air_press_AC7)
         end
     end
     
-    G2_7(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+    G2_7(index)=air_press_AC7(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_7(index)<0
-            Ttang2_7(index) = NaN;
-            Ptang2_7(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_7(index)
             Ttang2_7(index) = T(j);
             Ptang2_7(index) = Psatw(j);
@@ -1065,9 +960,6 @@ for index=1:length(air_press_AC7)
         end
     end
     Pline2_7(index,:)= H2O_gas_PC27(index).*air_press_AC7(index)/(10^6) + G2_7(index) * (T(:)-air_temp_AC7(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_7(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_7=indexSAC2_7+1;
-    %     end
     Psac2_7(index,:) = Ptang2_7(index)+G2_7(index)*(T(:)-Ttang2_7(index)); %tangent threshold curve
     
     if Pline2_7(index,1) >= Psac2_7(index,1)
@@ -1078,7 +970,7 @@ for index=1:length(air_press_AC7)
             RHw7(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw7(index)<100
                 indexpers2_7 = indexpers2_7+1;
-                lengthcontrail2_7 = lengthcontrail2_7+5*air_speed_AC7(index)/1000; %km
+                lengthcontrail2_7 = lengthcontrail2_7+timestep*air_speed_AC7(index)/1000; %km
                 if RHi7(index-1)<100 || RHw7(index-1)>100
                     indextimepers2_7=indextimepers2_7+1;
                 end
@@ -1088,13 +980,8 @@ for index=1:length(air_press_AC7)
 end
 
 for index=1:length(air_press_AC8)
-    G1_8(index)= air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
+    G1_8(index)= air_press_AC8(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_8(index)<0
-            Ttang1_8(index) = NaN;
-            Ptang1_8(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_8(index)
             Ttang1_8(index) = T(j);
             Ptang1_8(index) = Psatw(j);
@@ -1102,9 +989,6 @@ for index=1:length(air_press_AC8)
         end
     end
     Pline1_8(index,:)= H2O_gas_PC28(index).*air_press_AC8(index)/(10^6) + G1_8(index) * (T(:)-air_temp_AC8(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_8(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_8=indexSAC1_8+1;
-    %     end
     Psac1_8(index,:) = Ptang1_8(index)+G1_8(index)*(T(:)-Ttang1_8(index)); %tangent threshold curve
     
     if Pline1_8(index,1) >= Psac1_8(index,1)
@@ -1115,7 +999,7 @@ for index=1:length(air_press_AC8)
             RHw8(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw8(index)<100
                 indexpers1_8 = indexpers1_8+1;
-                lengthcontrail1_8 = lengthcontrail1_8+5*air_speed_AC8(index)/1000; %km
+                lengthcontrail1_8 = lengthcontrail1_8+timestep*air_speed_AC8(index)/1000; %km
                 if RHi8(index-1)<100 || RHw8(index-1)>100
                     indextimepers1_8=indextimepers1_8+1;
                 end
@@ -1123,13 +1007,8 @@ for index=1:length(air_press_AC8)
         end
     end
     
-    G2_8(index)=air_press_AC1(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
+    G2_8(index)=air_press_AC8(index)*cp*Mair/MH2O*EIH2O/((1-eff2)*LHV); %Slope of aircraft 2
     for j=1:length(T)-1
-        if G2_8(index)<0
-            Ttang2_8(index) = NaN;
-            Ptang2_8(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G2_8(index)
             Ttang2_8(index) = T(j);
             Ptang2_8(index) = Psatw(j);
@@ -1137,9 +1016,6 @@ for index=1:length(air_press_AC8)
         end
     end
     Pline2_8(index,:)= H2O_gas_PC28(index).*air_press_AC8(index)/(10^6) + G2_8(index) * (T(:)-air_temp_AC8(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline2_8(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC2_8=indexSAC2_8+1;
-    %     end
     Psac2_8(index,:) = Ptang2_8(index)+G2_8(index)*(T(:)-Ttang2_8(index)); %tangent threshold curve
     
     if Pline2_8(index,1) >= Psac2_8(index,1)
@@ -1150,7 +1026,7 @@ for index=1:length(air_press_AC8)
             RHw8(index)=PH2Opers(index)./eswpers(index)*100;
             if RHw8(index)<100
                 indexpers2_8 = indexpers2_8+1;
-                lengthcontrail2_8 = lengthcontrail2_8+5*air_speed_AC8(index)/1000; %km
+                lengthcontrail2_8 = lengthcontrail2_8+timestep*air_speed_AC8(index)/1000; %km
                 if RHi8(index-1)<100 || RHw8(index-1)>100
                     indextimepers2_8=indextimepers2_8+1;
                 end
