@@ -176,7 +176,7 @@ MH2O=0.01801528; %kg/mol
 
 %Fuel dependent variables
 LHV=4.32*10^7; %LHV of Jet A in J/kg
-EIH2O=1.23; % kgemission/kgfuel
+EIH2O=1.24; % kgemission/kgfuel
 
 %Temperature threshold SAC
 Tfreeze=273.15-38; %-38ºC in K
