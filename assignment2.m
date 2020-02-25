@@ -244,14 +244,14 @@ indextime6=1;
 indextime7=1;
 indextime8=1;
 
-time1(1)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
-time2(1)=5;
-time3(1)=5;
-time4(1)=5;
-time5(1)=5;
-time6(1)=5;
-time7(1)=5;
-time8(1)=5;
+time1(1)=10; %DEFINED AS 10 TO AVOID PROBLEMS; PROVE
+time2(1)=10;
+time3(1)=10;
+time4(1)=10;
+time5(1)=10;
+time6(1)=10;
+time7(1)=10;
+time8(1)=10;
 
 indexTthresISSR1=0;
 indexTthresISSR2=0;
@@ -267,15 +267,22 @@ for index=1:length(air_temp_AC1)
     PH2OISSR1(index)=H2O_gas_PC21(index).*air_press_AC1(index)/(10^6);
     RHi1(index)=PH2OISSR1(index)./esiISSR1(index)*100;
     if RHi1(index)>100
-        indexISSR1=indexISSR1+1; %TRY TO ACCOUNT FOR 30 SEC
-        if air_temp_AC1(index)<Tfreeze
-            indexTthresISSR1=indexTthresISSR1+1;
-        end
-        if RHi1(index-1)>100
-            time1(indextime1)=time1(indextime1)+5; %LOOK AGAIN
-        else
-            indextime1=indextime1+1;
-            time1(indextime1)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC1(index).^(-1)+a2w+a3w.*air_temp_AC1(index)+a4w.*air_temp_AC1(index).^2+a7w.*log(air_temp_AC1(index)));
+        PH2Opers(index)=H2O_gas_PC21(index).*air_press_AC1(index)/(10^6);
+        RHw1(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw1(index)<100
+            indexISSR1=indexISSR1+1;
+            if air_temp_AC1(index)<Tfreeze
+                indexTthresISSR1=indexTthresISSR1+1;
+            end
+            if index>3
+                if RHi1(index-1)>100 || RHi1(index-2)>100 || RHi1(index-3)>100
+                    time1(indextime1)=time1(indextime1)+10; %LOOK AGAIN
+                else
+                    indextime1=indextime1+1;
+                    time1(indextime1)=10; %DEFINED AS 10 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -285,15 +292,22 @@ for index=1:length(air_temp_AC2)
     PH2OISSR2(index)=H2O_gas_PC22(index).*air_press_AC2(index)/(10^6);
     RHi2(index)=PH2OISSR2(index)./esiISSR2(index)*100;
     if RHi2(index)>100
-        indexISSR2=indexISSR2+1;
-        if air_temp_AC2(index)<Tfreeze
-            indexTthresISSR2=indexTthresISSR2+1;
-        end
-        if RHi2(index-1)>100
-            time2(indextime2)=time2(indextime2)+5; %LOOK AGAIN
-        else
-            indextime2=indextime2+1;
-            time2(indextime2)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC2(index).^(-1)+a2w+a3w.*air_temp_AC2(index)+a4w.*air_temp_AC2(index).^2+a7w.*log(air_temp_AC2(index)));
+        PH2Opers(index)=H2O_gas_PC22(index).*air_press_AC2(index)/(10^6);
+        RHw2(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw2(index)<100
+            indexISSR2=indexISSR2+1;
+            if air_temp_AC2(index)<Tfreeze
+                indexTthresISSR2=indexTthresISSR2+1;
+            end
+            if index>3
+                if RHi2(index-1)>100 || RHi2(index-2)>100 || RHi2(index-3)>100
+                    time2(indextime2)=time2(indextime2)+10; %LOOK AGAIN
+                else
+                    indextime2=indextime2+1;
+                    time2(indextime2)=10; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -303,15 +317,22 @@ for index=1:length(air_temp_AC3)
     PH2OISSR3(index)=H2O_gas_PC23(index).*air_press_AC3(index)/(10^6);
     RHi3(index)=PH2OISSR3(index)./esiISSR3(index)*100;
     if RHi3(index)>100
-        indexISSR3=indexISSR3+1;
-        if air_temp_AC3(index)<Tfreeze
-            indexTthresISSR3=indexTthresISSR3+1;
-        end
-        if RHi3(index-1)>100
-            time3(indextime3)=time3(indextime3)+5; %LOOK AGAIN
-        else
-            indextime3=indextime3+1;
-            time3(indextime3)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC3(index).^(-1)+a2w+a3w.*air_temp_AC3(index)+a4w.*air_temp_AC3(index).^2+a7w.*log(air_temp_AC3(index)));
+        PH2Opers(index)=H2O_gas_PC23(index).*air_press_AC3(index)/(10^6);
+        RHw3(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw3(index)<100
+            indexISSR3=indexISSR3+1;
+            if air_temp_AC3(index)<Tfreeze
+                indexTthresISSR3=indexTthresISSR3+1;
+            end
+            if index>3
+                if RHi3(index-1)>100 || RHi3(index-2)>100 || RHi3(index-3)>100
+                    time3(indextime3)=time3(indextime3)+10; %LOOK AGAIN
+                else
+                    indextime3=indextime3+1;
+                    time3(indextime3)=10; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -321,15 +342,22 @@ for index=1:length(air_temp_AC4)
     PH2OISSR4(index)=H2O_gas_PC24(index).*air_press_AC4(index)/(10^6);
     RHi4(index)=PH2OISSR4(index)./esiISSR4(index)*100;
     if RHi4(index)>100
-        indexISSR4=indexISSR4+1;
-        if air_temp_AC4(index)<Tfreeze
-            indexTthresISSR4=indexTthresISSR4+1;
-        end
-        if RHi4(index-1)>100
-            time4(indextime4)=time4(indextime4)+5; %LOOK AGAIN
-        else
-            indextime4=indextime4+1;
-            time4(indextime4)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC4(index).^(-1)+a2w+a3w.*air_temp_AC4(index)+a4w.*air_temp_AC4(index).^2+a7w.*log(air_temp_AC4(index)));
+        PH2Opers(index)=H2O_gas_PC24(index).*air_press_AC4(index)/(10^6);
+        RHw4(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw4(index)<100
+            indexISSR4=indexISSR4+1;
+            if air_temp_AC4(index)<Tfreeze
+                indexTthresISSR4=indexTthresISSR4+1;
+            end
+            if index>3
+                if RHi4(index-1)>100 || RHi4(index-2)>100 || RHi4(index-3)>100
+                    time4(indextime4)=time4(indextime4)+10; %LOOK AGAIN
+                else
+                    indextime4=indextime4+1;
+                    time4(indextime4)=10; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -339,15 +367,22 @@ for index=1:length(air_temp_AC5)
     PH2OISSR5(index)=H2O_gas_PC25(index).*air_press_AC5(index)/(10^6);
     RHi5(index)=PH2OISSR5(index)./esiISSR5(index)*100;
     if RHi5(index)>100
-        indexISSR5=indexISSR5+1;
-        if air_temp_AC5(index)<Tfreeze
-            indexTthresISSR5=indexTthresISSR5+1;
-        end
-        if RHi5(index-1)>100
-            time5(indextime5)=time5(indextime5)+5; %LOOK AGAIN
-        else
-            indextime5=indextime5+1;
-            time5(indextime5)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC5(index).^(-1)+a2w+a3w.*air_temp_AC5(index)+a4w.*air_temp_AC5(index).^2+a7w.*log(air_temp_AC5(index)));
+        PH2Opers(index)=H2O_gas_PC25(index).*air_press_AC5(index)/(10^6);
+        RHw5(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw5(index)<100
+            indexISSR5=indexISSR5+1;
+            if air_temp_AC5(index)<Tfreeze
+                indexTthresISSR5=indexTthresISSR5+1;
+            end
+            if index>3
+                if RHi5(index-1)>100 || RHi5(index-2)>100 || RHi5(index-3)>100
+                    time5(indextime5)=time5(indextime5)+10; %LOOK AGAIN
+                else
+                    indextime5=indextime5+1;
+                    time5(indextime5)=10; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -357,15 +392,22 @@ for index=1:length(air_temp_AC6)
     PH2OISSR6(index)=H2O_gas_PC26(index).*air_press_AC6(index)/(10^6);
     RHi6(index)=PH2OISSR6(index)./esiISSR6(index)*100;
     if RHi6(index)>100
-        indexISSR6=indexISSR6+1;
-        if air_temp_AC6(index)<Tfreeze
-            indexTthresISSR6=indexTthresISSR6+1;
-        end
-        if RHi6(index-1)>100
-            time6(indextime6)=time6(indextime6)+5; %LOOK AGAIN
-        else
-            indextime6=indextime6+1;
-            time6(indextime6)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC6(index).^(-1)+a2w+a3w.*air_temp_AC6(index)+a4w.*air_temp_AC6(index).^2+a7w.*log(air_temp_AC6(index)));
+        PH2Opers(index)=H2O_gas_PC26(index).*air_press_AC6(index)/(10^6);
+        RHw6(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw6(index)<100
+            indexISSR6=indexISSR6+1;
+            if air_temp_AC6(index)<Tfreeze
+                indexTthresISSR6=indexTthresISSR6+1;
+            end
+            if index>3
+                if RHi6(index-1)>100 || RHi6(index-2)>100 || RHi6(index-3)>100
+                    time6(indextime6)=time6(indextime6)+10; %LOOK AGAIN
+                else
+                    indextime6=indextime6+1;
+                    time6(indextime6)=10; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -375,15 +417,22 @@ for index=1:length(air_temp_AC7)
     PH2OISSR7(index)=H2O_gas_PC27(index).*air_press_AC7(index)/(10^6);
     RHi7(index)=PH2OISSR7(index)./esiISSR7(index)*100;
     if RHi7(index)>100
-        indexISSR7=indexISSR7+1;
-        if air_temp_AC7(index)<Tfreeze
-            indexTthresISSR7=indexTthresISSR7+1;
-        end
-        if RHi7(index-1)>100
-            time7(indextime7)=time7(indextime7)+5; %LOOK AGAIN
-        else
-            indextime7=indextime7+1;
-            time7(indextime7)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC7(index).^(-1)+a2w+a3w.*air_temp_AC7(index)+a4w.*air_temp_AC7(index).^2+a7w.*log(air_temp_AC7(index)));
+        PH2Opers(index)=H2O_gas_PC27(index).*air_press_AC7(index)/(10^6);
+        RHw7(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw7(index)<100
+            indexISSR7=indexISSR7+1;
+            if air_temp_AC7(index)<Tfreeze
+                indexTthresISSR7=indexTthresISSR7+1;
+            end
+            if index>3
+                if RHi7(index-1)>100 || RHi7(index-2)>100 || RHi7(index-3)>100
+                    time7(indextime7)=time7(indextime7)+10; %LOOK AGAIN
+                else
+                    indextime7=indextime7+1;
+                    time7(indextime7)=10; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -393,15 +442,22 @@ for index=1:length(air_temp_AC8)
     PH2OISSR8(index)=H2O_gas_PC28(index).*air_press_AC8(index)/(10^6);
     RHi8(index)=PH2OISSR8(index)./esiISSR8(index)*100;
     if RHi8(index)>100
-        indexISSR8=indexISSR8+1;
-        if air_temp_AC8(index)<Tfreeze
-            indexTthresISSR8=indexTthresISSR8+1;
-        end
-        if RHi8(index-1)>100
-            time8(indextime8)=time8(indextime8)+5; %LOOK AGAIN
-        else
-            indextime8=indextime8+1;
-            time8(indextime8)=5; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+        eswpers(index)=exp(a1w.*air_temp_AC8(index).^(-1)+a2w+a3w.*air_temp_AC8(index)+a4w.*air_temp_AC8(index).^2+a7w.*log(air_temp_AC8(index)));
+        PH2Opers(index)=H2O_gas_PC28(index).*air_press_AC8(index)/(10^6);
+        RHw8(index)=PH2Opers(index)./eswpers(index)*100;
+        if RHw8(index)<100
+            indexISSR8=indexISSR8+1;
+            if air_temp_AC8(index)<Tfreeze
+                indexTthresISSR8=indexTthresISSR8+1;
+            end
+            if index>3
+                if RHi8(index-1)>100 || RHi8(index-2)>100 || RHi8(index-3)>100
+                    time8(indextime8)=time8(indextime8)+10; %LOOK AGAIN
+                else
+                    indextime8=indextime8+1;
+                    time8(indextime8)=10; %DEFINED AS 5 TO AVOID PROBLEMS; PROVE
+                end
+            end
         end
     end
 end
@@ -600,6 +656,7 @@ for index=1:length(air_press_AC1)
             if RHw1(index)<100
                 indexpers1_1 = indexpers1_1+1;
                 lengthcontrail1_1 = lengthcontrail1_1+timestep*air_speed_AC1(index)/1000; %km
+                
                 if RHi1(index-1)<100 || RHw1(index-1)>100
                     indextimepers1_1=indextimepers1_1+1;
                 end
@@ -638,11 +695,6 @@ end
 for index=1:length(air_press_AC2)
     G1_2(index)= air_press_AC2(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
-        if G1_2(index)<0
-            Ttang1_2(index) = NaN;
-            Ptang1_2(index) = NaN;
-            break;
-        end
         if dPsatw_dTsatw(j) > G1_2(index)
             Ttang1_2(index) = T(j);
             Ptang1_2(index) = Psatw(j);
@@ -762,9 +814,6 @@ for index=1:length(air_press_AC4)
         end
     end
     Pline1_4(index,:)= H2O_gas_PC24(index).*air_press_AC4(index)/(10^6) + G1_4(index) * (T(:)-air_temp_AC4(index)); %Curve that goes through the studied point
-    %     if isempty(intersections(T, Pline1_4(index,:), Tsatw, Psatw, ROBUST))==0
-    %         indexSAC1_4=indexSAC1_4+1;
-    %     end
     Psac1_4(index,:) = Ptang1_4(index)+G1_4(index)*(T(:)-Ttang1_4(index)); %tangent threshold curve
     
     if Pline1_4(index,1) >= Psac1_4(index,1)
