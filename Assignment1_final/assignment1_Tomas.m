@@ -99,8 +99,8 @@ RF2019_2005 = RF2019(66)
 RF2019_2020 = RF2019(81)
 
 figure(4)
-hold on
 plot(year(1:81),RF2008(1:81))
+hold on
 plot(year(1:81),RF2019(1:81))
 title('Radiative forcing from aviation CH_4 effects from 1940 to 2020')
 xlabel('Year')

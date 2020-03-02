@@ -692,6 +692,20 @@ for index=1:length(air_press_AC1)
     end
 end
 
+%Plot of tangent line
+figure(2)
+plot(Tsatw-273.15,Psatw)
+hold on
+plot(Tsati-273.15,Psati)
+plot(T(:)-273.15,Psac1_1(100,:))
+title('Tangent line')
+xlabel('T (ºC)')
+ylabel('Water vapour pressure (Pa)')
+xlim([-60 -20])
+ylim([0 50])
+legend({'Water','Ice','Tangent'},'Location','northwest')
+
+
 for index=1:length(air_press_AC2)
     G1_2(index)= air_press_AC2(index)*cp*Mair/MH2O*EIH2O/((1-eff1)*LHV); %Slope of aircraft 1
     for j=1:length(T)-1
@@ -1136,35 +1150,3 @@ meancontraillength1_7=lengthcontrail1_7/indextimepers1_7;
 meancontraillength2_7=lengthcontrail2_7/indextimepers2_7;
 meancontraillength1_8=lengthcontrail1_8/indextimepers1_8;
 meancontraillength2_8=lengthcontrail2_8/indextimepers2_8;
-
-
-%% USELESS PART
-
-% for index=1:length(Pwatervapour)
-%     RHi(:,index)=Pwatervapour(index)./esi*100; %Saturation for water, search for 100%
-% end
-%
-% for indexRH=1:length(RHi)
-%     for indexP=1:length(Pwatervapour)
-%         if RHi(indexRH,indexP)>100
-%             Psati(indexRH)=(Pwatervapour(indexP)+Pwatervapour(indexP-1))/2;
-%             Tsati(indexRH)=T(indexRH);
-%             break;
-%         end
-%     end
-% end
-
-
-% for index=1:length(Pwatervapour)
-%     RHw(:,index)=Pwatervapour(index)./esw*100; %Saturation for water, search for 100%
-% end
-%
-% for indexRH=1:length(RHw)
-%     for indexP=1:length(Pwatervapour)
-%         if RHw(indexRH,indexP)>100
-%             Psatw(indexRH)=(Pwatervapour(indexP)+Pwatervapour(indexP-1))/2;
-%             Tsatw(indexRH)=T(indexRH);
-%             break;
-%         end
-%     end
-% end
